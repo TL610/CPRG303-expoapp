@@ -1,20 +1,25 @@
 //rnf - react native functional component
 
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import { Link } from "expo-router";
 import React from "react";
 import { ImageBackground } from "react-native";
 import { TextInput } from "react-native";
+import { useNavigation } from "expo-router";
 
 export default function Page() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <ImageBackground
+      {/* <ImageBackground
         style={{ flex: 1 }}
         source={{ uri: "https://picsum.photos/200/300" }}
       >
         <View style={styles.main}>
-          <Text style={{ fontSize: 36, color: "white" }}>LOGIN PAGE</Text>
+          <Text style={{ fontSize: 36, fontWeight: "bold", color: "white" }}>
+            LOGIN PAGE
+          </Text>
           <TextInput style={styles.input} placeholder="Name" />
           <TextInput style={styles.input} placeholder="Password" />
           <Text style={styles.title}>Home Page</Text>
@@ -26,7 +31,13 @@ export default function Page() {
             Go to the next page
           </Link>
         </View>
-      </ImageBackground>
+      </ImageBackground> */}
+
+      <Text style={{ fontSize: 40, fontWeight: "bold" }}>Home Page</Text>
+      <Link style={{ fontSize: 26, fontWeight: "bold" }} href="/home">
+        Go to Tabs
+      </Link>
+      <Button title="Login" onPress={() => navigation.navigate("(tabs)")} />
     </View>
   );
 }
